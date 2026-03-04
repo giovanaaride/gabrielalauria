@@ -21,8 +21,11 @@ const comparisons = [
 ];
 
 const BeforeAfter = () => (
-  <section id="antes-e-depois" className="bg-white py-24">
-    <Container>
+  <section id="antes-e-depois" className="relative bg-white py-24 pb-32 overflow-hidden">
+    {/* Decorative Background Accents */}
+    <div className="absolute top-1/4 left-0 -translate-x-1/2 w-[400px] h-[400px] bg-rosa/5 rounded-full blur-[100px] pointer-events-none" />
+    <div className="absolute bottom-1/4 right-0 translate-x-1/3 w-[300px] h-[300px] bg-azul/10 rounded-full blur-[80px] pointer-events-none" />
+    <Container className="relative z-10">
       <SectionTitle
         title="Antes e Depois"
         subtitle="Transformações visuais reais"
@@ -57,7 +60,7 @@ const BeforeAfter = () => (
               </div>
 
               {/* DEPOIS */}
-              <div className="overflow-hidden rounded-xl bg-white  shadow-sm shadow-[#ED125B]/25">
+              <div className="overflow-hidden rounded-xl bg-white shadow-sm shadow-[#ED125B]/25">
                 <div className="px-4 pt-4">
                   <span className="font-body text-xs uppercase tracking-[0.2em] text-primary">
                     Depois
@@ -79,6 +82,22 @@ const BeforeAfter = () => (
         ))}
       </div>
     </Container>
+
+    {/* Decorative Wave Divider at Bottom */}
+    <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 transform">
+      <svg
+        className="relative block w-full h-[60px] md:h-[100px]"
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34-5.25V120H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+          className="fill-gelo/60"
+        ></path>
+      </svg>
+    </div>
   </section>
 );
 

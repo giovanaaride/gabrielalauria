@@ -17,6 +17,17 @@ const Footer = () => (
       <p className="font-body text-xs text-bege/40">
         © {new Date().getFullYear()} Gabriela Lauria — Todos os direitos reservados.
       </p>
+      <p className="font-body text-xs text-bege/40 mt-1">
+        Desenvolvido por{" "}
+        <a
+          href="https://giovanaaride.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-bege hover:text-primary transition-colors font-medium"
+        >
+          Giovana
+        </a>
+      </p>
     </div>
   </footer>
 );

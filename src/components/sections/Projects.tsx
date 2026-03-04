@@ -9,8 +9,12 @@ import bfrValDutra from "@/assets/bfr-valdutrapodologa.png";
 import aftValDutra from "@/assets/aft-valdutrapodologa.png";
 
 const Projects = () => (
-  <section id="portfolio" className="bg-white py-24">
-    <Container>
+  <section id="portfolio" className="relative bg-white py-24 overflow-hidden">
+    {/* Decorative Background Blobs */}
+    <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-[500px] h-[500px] bg-bege/15 rounded-full blur-[100px] pointer-events-none" />
+    <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-[500px] h-[500px] bg-azul/10 rounded-full blur-[100px] pointer-events-none" />
+
+    <Container className="relative z-10">
       <SectionTitle title="Portfólio" subtitle="Projetos que contam histórias" />
 
       <div className="mx-auto max-w-5xl space-y-20">
@@ -118,6 +122,27 @@ const Projects = () => (
         </div>
 
       </div>
+
+      {/* BOUNCING ARROW */}
+      <div className="mt-24 flex justify-center">
+        <a href="#antes-e-depois" aria-label="Ver Antes e Depois" className="animate-bounce">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-primary hover:text-rosa transition-colors"
+          >
+            <path d="M12 5v14M19 12l-7 7-7-7" />
+          </svg>
+        </a>
+      </div>
+
     </Container>
   </section>
 );
