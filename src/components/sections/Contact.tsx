@@ -62,110 +62,146 @@ const Contact = () => {
   };
 
   const inputClass =
-    "w-full rounded-sm border border-border bg-gelo px-4 py-3 font-body text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition";
+    "w-full rounded-xl border border-white/10 bg-white/5 px-6 py-4 font-body text-sm text-white placeholder:text-bege/30 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all duration-300";
 
   return (
-    <section id="contato" className="bg-card py-24">
-      <Container>
+    <section id="contato" className="bg-preto py-24 relative overflow-hidden text-gelo">
+      {/* Decorative Gradient Background */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+      
+      <Container className="relative z-10">
         <SectionTitle title="Contato" subtitle="Vamos conversar sobre o seu projeto" />
 
-        <div className="mx-auto max-w-4xl grid gap-12 md:grid-cols-[1fr_1.2fr]">
+        <div className="mx-auto mt-16 max-w-5xl grid gap-16 lg:grid-cols-[1fr_1.5fr] items-start">
           {/* Info side */}
-          <div className="flex flex-col gap-6">
-            <p className="font-body text-base text-foreground/80 leading-relaxed">
-              Pronta para transformar sua presença digital? Entre em contato por qualquer canal abaixo ou preencha o formulário.
-            </p>
+          <div className="space-y-10">
+            <div className="space-y-6">
+              <h3 className="font-display text-3xl font-bold leading-tight">
+                Pronta para levar sua marca ao <span className="text-primary italic">próximo nível?</span>
+              </h3>
+              <p className="font-body text-lg text-bege/70 leading-relaxed">
+                Entre em contato por qualquer canal abaixo ou preencha o formulário e eu responderei o mais breve possível.
+              </p>
+            </div>
 
-            <div className="space-y-4 mt-2">
+            <div className="grid gap-6">
               <a
                 href="https://wa.me/5521994319292"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 font-body text-sm text-foreground/70 hover:text-primary transition-colors"
+                className="group flex items-center gap-5 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-300"
               >
-                <Phone size={18} className="text-primary shrink-0" />
-                (21) 99431-9292
+                <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                  <Phone size={24} />
+                </div>
+                <div>
+                  <p className="font-body text-xs text-bege/50 uppercase tracking-widest mb-1">WhatsApp</p>
+                  <p className="font-display text-lg font-semibold">(21) 99431-9292</p>
+                </div>
               </a>
+
               <a
                 href="mailto:gabiilauriafc@gmail.com"
-                className="flex items-center gap-3 font-body text-sm text-foreground/70 hover:text-primary transition-colors"
+                className="group flex items-center gap-5 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-300"
               >
-                <Mail size={18} className="text-primary shrink-0" />
-                gabiilauriafc@gmail.com
+                <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                  <Mail size={24} />
+                </div>
+                <div>
+                  <p className="font-body text-xs text-bege/50 uppercase tracking-widest mb-1">E-mail</p>
+                  <p className="font-display text-lg font-semibold">gabiilauriafc@gmail.com</p>
+                </div>
               </a>
+
               <a
                 href="https://www.instagram.com/gabiilauria_/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 font-body text-sm text-foreground/70 hover:text-primary transition-colors"
+                className="group flex items-center gap-5 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-300"
               >
-                <Instagram size={18} className="text-primary shrink-0" />
-                @gabiilauria_
+                <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                  <Instagram size={24} />
+                </div>
+                <div>
+                  <p className="font-body text-xs text-bege/50 uppercase tracking-widest mb-1">Instagram</p>
+                  <p className="font-display text-lg font-semibold">@gabiilauria_</p>
+                </div>
               </a>
             </div>
           </div>
 
           {/* Form side */}
-          <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-            <div>
+          <div className="relative">
+            <div className="absolute -inset-4 bg-primary/5 rounded-3xl blur-2xl pointer-events-none" />
+            <form onSubmit={handleSubmit} className="relative space-y-6 bg-white/5 p-8 md:p-10 rounded-3xl border border-white/10 backdrop-blur-md" noValidate>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Seu nome *"
+                    maxLength={100}
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    className={inputClass}
+                  />
+                  {errors.name && <p className="mt-2 font-body text-xs text-primary">{errors.name}</p>}
+                </div>
+
+                <div>
+                  <input
+                    type="email"
+                    placeholder="Seu email *"
+                    maxLength={255}
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    className={inputClass}
+                  />
+                  {errors.email && <p className="mt-2 font-body text-xs text-primary">{errors.email}</p>}
+                </div>
+              </div>
+
               <input
                 type="text"
-                placeholder="Seu nome *"
-                maxLength={100}
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                placeholder="Assunto (opcional)"
+                maxLength={150}
+                value={form.subject}
+                onChange={(e) => setForm({ ...form, subject: e.target.value })}
                 className={inputClass}
               />
-              {errors.name && <p className="mt-1 font-body text-xs text-primary">{errors.name}</p>}
-            </div>
 
-            <div>
-              <input
-                type="email"
-                placeholder="Seu email *"
-                maxLength={255}
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className={inputClass}
-              />
-              {errors.email && <p className="mt-1 font-body text-xs text-primary">{errors.email}</p>}
-            </div>
+              <div>
+                <textarea
+                  placeholder="Sua mensagem *"
+                  rows={5}
+                  maxLength={1000}
+                  value={form.message}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  className={`${inputClass} resize-none`}
+                />
+                {errors.message && <p className="mt-2 font-body text-xs text-primary">{errors.message}</p>}
+              </div>
 
-            <input
-              type="text"
-              placeholder="Assunto (opcional)"
-              maxLength={150}
-              value={form.subject}
-              onChange={(e) => setForm({ ...form, subject: e.target.value })}
-              className={inputClass}
-            />
+              <button
+                type="submit"
+                className="w-full inline-flex items-center justify-center gap-3 rounded-xl bg-primary px-8 py-5 font-body text-base font-bold text-white uppercase tracking-[0.1em] hover:brightness-110 transition-all shadow-xl shadow-primary/20 mt-4 active:scale-95"
+              >
+                <Send size={20} />
+                Enviar Mensagem
+              </button>
 
-            <div>
-              <textarea
-                placeholder="Sua mensagem *"
-                rows={5}
-                maxLength={1000}
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className={`${inputClass} resize-none`}
-              />
-              {errors.message && <p className="mt-1 font-body text-xs text-primary">{errors.message}</p>}
-            </div>
-
-            <button
-              type="submit"
-              className="inline-flex items-center gap-2 rounded-sm bg-primary px-8 py-3 font-body text-sm font-semibold text-primary-foreground uppercase tracking-wider hover:brightness-110 transition"
-            >
-              <Send size={16} />
-              Enviar via WhatsApp
-            </button>
-
-            {submitted && (
-              <p className="font-body text-sm text-primary font-medium animate-fade-in-up">
-                Mensagem encaminhada! ✓
-              </p>
-            )}
-          </form>
+              {submitted && (
+                <div className="absolute inset-0 bg-preto/80 backdrop-blur-md flex items-center justify-center rounded-3xl animate-fade-in-up">
+                  <div className="text-center p-8">
+                    <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white mx-auto mb-4">
+                      <Send size={32} />
+                    </div>
+                    <h4 className="font-display text-2xl font-bold mb-2">Mensagem encaminhada!</h4>
+                    <p className="font-body text-bege/70">Redirecionando para o WhatsApp...</p>
+                  </div>
+                </div>
+              )}
+            </form>
+          </div>
         </div>
       </Container>
     </section>

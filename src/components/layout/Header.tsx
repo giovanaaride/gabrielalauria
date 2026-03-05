@@ -3,9 +3,10 @@ import { Menu, X, Instagram } from "lucide-react";
 
 const navLinks = [
   { label: "Sobre", href: "#sobre" },
-  { label: "Serviços", href: "#servicos" },
+  { label: "Solução", href: "#solucao" },
   { label: "Portfólio", href: "#portfolio" },
-  { label: "Vídeos", href: "#videos" },
+  { label: "Benefícios", href: "#beneficios" },
+  { label: "FAQ", href: "#faq" },
   { label: "Contato", href: "#contato" },
 ];
 
